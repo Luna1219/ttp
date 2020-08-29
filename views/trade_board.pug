@@ -1,0 +1,64 @@
+extend layouts/layout.pug
+
+block title
+  title 엄준식
+
+block content
+  section
+    .table-section
+      h1= boardTitle
+      - if(posts.length == 0)
+        h1.empty 등록된 글이 없습니다
+      - else
+        p#count(count=`${count}`) 전체글: #{count} 개
+        p#point 현재위치: #{page}page / #{Math.ceil(count/10)}page
+        table.trade
+          thead
+            td 번호
+            td 제목
+            td 가격
+            td 작성자
+            td 날짜
+            td 추천
+          tbody
+            for post in posts
+              tr
+                td= post.id
+                td
+                  a(href=`/post/${post.id}`)=post.title
+                td.price(price=`${post.price}`)
+                td= post.owner
+                td= post.last_edit
+                td= post.like
+      .right
+        - if(user.isLogin)
+          a(href=`/write/${realTitle}` title="새로운 글 작성") <i class="fa fa-pen"></i>
+    .board-bottom
+      .center
+        a(href="/news/notice/1") 1
+
+block js
+  script.
+    const count = $('#count').attr('count');
+
+    const meso = '메소';
+
+    function changeNumToString(num) {
+      if(num < 10000) {
+        return num;
+      }else if(num < 100000000) {
+        return `${num/10000}만 ${meso}`;
+      }else if(num < 1000000000000) {
+        return `${num/100000000}억 ${meso}`;
+      }else if(num < 10000000000000000) {
+        return `${num/1000000000000}조 ${meso}`;
+      }else if(num < 100000000000000000000) {
+        return `${num/10000000000000000}경 ${meso}`;
+      }else {
+        return `${num/100000000000000000000}해 ${meso}`;
+      }
+    }
+
+    $('.price').each(function(index, item) {
+      $(this).text(changeNumToString($(this).attr('price')));
+    })

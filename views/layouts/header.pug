@@ -1,0 +1,81 @@
+header
+  .nav-burger
+    .nav-burger-div
+      .nav-burger__icon
+  h1 배너 예시 입니다
+    .subtitle 내용
+nav
+  h2
+    a(href="/")
+      img(src="/images/logo.png" alt="로고")
+  ul.menu
+    li
+      span 소식
+      ul.menu-list
+        li
+          a(href="/news/notice") 공지사항
+        li
+          a(href="/news/event") 이벤트
+        li
+          a(href="/news/guide") 가이드
+        li
+          a(href="/news/ban") 제제내역
+    li
+      span 커뮤니티
+      ul.menu-list
+        li
+          a(href="/community/free") 자유게시판
+        li
+          a(href="/community/trade") 거래게시판
+        li
+          a(href="/community/guild") 길드게시판
+        li
+          a(href="/community/picture") 스크린샷게시판
+        li
+          a(href="/community/qna") 질문게시판
+        li
+          a(href="/community/error") 오류제보게시판
+    li
+      a(href="/rank") 랭킹
+    li
+      a(href="/discord") 디스코드
+    li
+      a(href="/download") 다운로드
+.back-menu
+.login
+  .left
+    - if(!user.isLogin)
+      .header-loginForm
+        h1 로그인이 필요합니다
+        .btns
+          .btn
+            a(href="/login") 로그인
+          .btn
+            a(href="/register") 회원가입
+    - else
+      .header-loginForm
+        h1 #{user.nickname}님 안녕하세요
+        .btns
+          .btn
+            a(href="/api/logout") 로그아웃
+  .center
+    a(href="/download")
+      .download
+  .right
+    - if(!user.isLogin)
+      a(href="/login")
+        .login-right-item
+          p 로그인
+    - else
+      a(href="/api/logout")
+        .login-right-item
+          p 로그아웃
+    a(href="/news/notice")
+      .login-right-item
+        p 공지사항
+    a(href="/news/event")
+      .login-right-item
+        p 이벤트
+    a(href="/discord")
+      .login-right-item
+        p 디스코드

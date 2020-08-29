@@ -1,0 +1,64 @@
+extend layouts/layout.pug
+
+block title
+  title 엄준식
+
+block css
+  link(rel="stylesheet", href="/css/write.css")
+
+block content
+  section
+    .writeBox
+      h1 #{boardTitle} 글쓰기
+      - if(user.isLogin)
+        form(action=`/write/save/${boardTitle}` method="post")
+          input#textTitle(type="text" name="title" placeholder="제목" required)
+          if (boardTitle == 'trade')
+            input#price(type="number" name="price" placeholder="가격" required)
+          else
+            input#price(type="hidden" name="price" value="0")
+          textarea#edit(name="content" required)
+          .right
+            input(type="submit", value="작성")
+
+block js
+  script.
+    const editor = new FroalaEditor('#edit', {
+      toolbarInline: false,
+      imageUploadURL: '/api/upload_image',
+      imageUploadParams: {
+        id: 'my_editor'
+      },
+      fileUploadURL: '/api/upload_file',
+      fileUploadParams: {
+        id: 'my_editor'
+      },
+      fileUploadMethod: 'POST',
+      fileMaxSize: 20*1024*1024,
+      events: {
+        'image.removed': function($img) {
+          $.ajax({
+            method: 'POST',
+            url: '/api/delete_image',
+            data: {
+              src: $img.attr('src')
+            }
+          }).done(data => {
+          }).fail(e => {
+            console.error(e);
+          })
+        },
+        'file.unlink': function(file) {
+          $.ajax({
+            method: 'POST',
+            url: '/api/delete_file',
+            data: {
+              src: file.getAttribute('href')
+            }
+          }).done(data => {
+          }).fail(e => {
+            console.error(e);
+          })
+        }
+      }
+    });

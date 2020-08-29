@@ -1,0 +1,279 @@
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&family=Nanum+Gothic+Coding:wght@400;700&family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Sunflower:wght@300;500;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css');
+
+* { font-family: 'Spoqa Han Sans'; outline: 0;
+  --main-color: #FFC400;
+  --main-color-dark: #a88100;
+  --main-color-more-dark: #816a24;
+  --hover-text-color: rgb(255, 174, 0);
+  --nav-text-color: white;
+  --nav-item-text-color: rgb(255, 239, 205);
+  --font-color: white;
+  --nav-back-menu-color: rgb(82, 56, 0);
+  --login-bar-color: goldenrod;
+  --background-color: rgb(240, 227, 194);
+  --footer-color: rgb(41, 43, 58);
+}
+
+body, html { margin: 0; padding: 0; background-color: var(--background-color); width: 100%; min-width: 1400px; overflow-x: hidden;}
+
+h1, h2, h3, h4, h5, p { margin: 0; }
+ul {list-style: none;}
+a { text-decoration: none; color: white;}
+
+header { position: relative; width: 100%; height: 500px; background-image: url('/images/banner.png'); background-position: center; background-size: cover; background-repeat: no-repeat; }
+header h1 { position: absolute; width: 100%; left: 50%; top: 50%; line-height: 1; transform: translate(-50%, -50%); font-size: 5rem; color: var(--font-color); text-align: center; text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);}
+header h1 .subtitle { font-size: 2rem; margin-top: 2rem;}
+
+nav { position: absolute; top: 50px; left: 50%; transform:translate(-50%); width: 70%; display: flex; justify-content: space-around; z-index: 2;}
+nav h2 { position: relative; width: 200px;}
+nav h2 a { display: flex; align-items: center; }
+nav h2 img { width: 200px; resize: both;}
+
+nav > ul { position: relative; width: 100%; display: flex; justify-content: space-around; font-weight: 900;}
+nav > ul > li { display: inline-block; font-size: 1.7rem; width: 100%; text-align: center;}
+nav > ul > li > a,
+nav > ul > li > span { color: var(--nav-text-color); word-break: keep-all; width: 100%; display: block; transition: color 0.3s ease;}
+nav > ul > li > a:hover,
+nav > ul > li > span:hover { color: var(--hover-text-color); transition: color 0.3s ease;}
+nav > ul > li > ul { padding-left: 0px; display: none; max-height: 1000px;}
+nav > ul > li > ul > li { font-size: 1rem; cursor: pointer; transition: color 0.3s ease;}
+nav > ul > li > ul > li > a { color: var(--nav-item-text-color); display:block; width: 100%; height: 100%; padding: 0.25rem 0;}
+nav > ul > li > ul > li > a:hover { color: var(--hover-text-color); transition: color 0.3s ease;}
+
+footer { width: 100%; margin-top: 2rem; height: 200px; background-color: var(--footer-color); color: white; display: flex; align-items: center; justify-content: center; text-align: center;}
+footer .footer-message { font-size: 1rem; font-weight: normal;}
+
+.error-message { color: white;}
+
+.up-window { position: fixed; background: white; bottom: 15px; right: 15px; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); z-index: 1000;}
+.up-window i { position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.5rem;}
+
+.nav-burger { width: 40px; height: 40px; background: transparent; position: fixed; top: 5px; right: 5px; display: none; z-index: 5; cursor: pointer; border-radius: 0.5rem; overflow: hidden;}
+.nav-burger-div { display: flex; transition: all .5s ease-in-out; width: 100%; height: 100%; align-items: center; justify-content: center;}
+
+.nav-burger__icon { width: 30px; height: 4px; background-color: white; border-radius: 5px; transition: all .5s ease-in-out; transition: all .5s ease-in-out; box-shadow: 0 0 5px black;}
+.nav-burger__icon::before,
+.nav-burger__icon::after { content: ''; position: absolute; width: 30px; height: 4px; background-color: white; border-radius: 5px; transition: all .5s ease-in-out; box-shadow: 0 0 5px black;}
+
+.nav-burger__icon::before { transform: translateY(-10px);}
+.nav-burger__icon::after { transform: translateY(10px);}
+
+.nav-burger-div.open { background: black;}
+.nav-burger-div.open .nav-burger__icon { transform: translateX(-50px); background: transparent; box-shadow: none;}
+.nav-burger-div.open .nav-burger__icon::before { transform: rotate(45deg) translate(35px, -35px); background-color: white;}
+.nav-burger-div.open .nav-burger__icon::after { transform: rotate(-45deg) translate(35px, 35px); background-color: white;}
+.lock-scroll { overflow: hidden;}
+
+article { width: 100%;}
+
+.font-black { color: black;}
+.font-white { color: white;}
+
+.hide { display: none;}
+
+.empty { color: rgba(0,0,0,0.2); font-size: 3rem !important; font-weight: normal; width: 100% !important;}
+
+.back-menu { position: absolute; background-color: var(--nav-back-menu-color); width: 100%; top: 0px; height: 420px; z-index: 1; display: none; box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.5);}
+
+.login { position:relative; width: 100%; height: 150px; background-color: var(--login-bar-color);}
+.login .center { position: relative; left: 50%; width: 200px; transform: translate(-50%, -60px);}
+.login .center a { position: relative; display: block; border-radius: 50%; transition: all 0.5s ease;}
+.login .center a .download { width:200px; height: 200px; background-color: var(--main-color-dark); border-radius: 50%; transition: all 0.5s ease;}
+/* 다운로드 버튼
+  이미지 적용시 background-color 제거하고 background-image: url('이미지 위치') 로 변경
+*/
+
+.login .left { position:absolute; top: 0px; left: 5%; height: 100%; width: 35%; display: flex; align-items: center; justify-content: center;}
+.login .left .header-loginForm { position: relative; width: 90%; height: 90%; background-color: var(--main-color-dark); border-radius: 20px; display: flex; align-items: center; justify-content: center;}
+.login .left .header-loginForm h1 { position: absolute; font-size: 2rem; color: white;}
+.login .left .header-loginForm .btns { position: absolute; right: 10px; bottom: 10px; display: flex;}
+.login .left .header-loginForm .btns .btn { position: relative; padding: 5px; background-color: white; border-radius: 10px; margin-right: .5rem;}
+.login .left .header-loginForm .btns .btn a { color: black; display: block; width: 100%; height: 100%; font-size: 1rem;}
+
+.login .right { position:absolute; top: 0px; right: 5%; height: 100%; width: 35%; display: flex; align-items: center; justify-content: space-between; transition: all 0.5s ease;}
+.login .right .login-right-item { position: relative; display: inline-block; background-color: var(--main-color); border-radius: 20px; height: 120px; width: 120px; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.5s ease;}
+/*
+  마찬가지로 background-color 제거하고 background-image로 변경
+  HTML에서 내용 비우기
+*/
+
+.loginForm { margin-top: 2rem; border-radius:5px; position: relative; background-color: var(--footer-color); width: 400px; box-sizing: border-box; padding: 2rem; left: 50%; transform: translate(-50%); text-align: center;}
+.loginForm h1 { font-size: 2rem; color: white; margin-bottom: 1rem;}
+
+.registerForm { background-color: var(--footer-color); margin-top: 2rem; border-radius: 5px; position: relative; width: 90%; box-sizing: border-box; padding: 2rem; left: 50%; transform: translate(-50%); text-align: center;}
+.registerForm h1 { font-size: 2rem; color: white; margin-bottom: 1rem;}
+
+.loginForm .id-box,
+.loginForm .pw-box,
+.registerForm .id-box,
+.registerForm .pw-box {
+  position: relative; display: flex; left: 50%; transform: translate(-50%); width: max-content; max-width: 70%;
+}
+
+.loginForm .id-box input[type='text'],
+.loginForm .pw-box input[type='password'],
+.registerForm .id-box input[type='text'],
+.registerForm .pw-box input[type='password'] {
+  border-radius: 20px; border: 0; outline: 0; margin: 0; padding: .8rem 1rem .3rem 1rem; background-color: white; margin-bottom: 1rem; box-sizing: border-box; width: 100%; max-width: 100%;
+}
+
+.loginForm .id-box .placeholder,
+.loginForm .pw-box .placeholder,
+.registerForm .id-box .placeholder,
+.registerForm .pw-box .placeholder {
+  position: absolute; left: 1rem; top: 5px; color: gray; transition: all .2s ease;
+}
+
+.loginForm .id-box .placeholder.focus,
+.loginForm .pw-box .placeholder.focus,
+.registerForm .id-box .placeholder.focus,
+.registerForm .pw-box .placeholder.focus {
+  left: 1rem; top: 0px; font-size: .7rem; transition: all .2s ease;
+}
+
+.loginForm input[type='submit'],
+.registerForm input[type='submit'] {
+  width: 300px; border: 0; padding: 0; outline: 0; height: 30px; color: #000; background-color: white; border-radius: 100px; max-width: 70%;
+}
+
+.registerForm .terms { position: relative; width: 90%; background-color: white; left: 50%; transform: translate(-50%); padding: .5rem; box-sizing: border-box; text-align: left; margin-bottom: .5rem; height: 300px; max-height: 300px; overflow-y: auto;}
+.registerForm .check { color: white; width: 90%; position: relative; left: 50%; transform: translate(-50%); text-align: right; margin-bottom: 1.5rem;}
+.registerForm .check.open { max-height: 50px; transition: all .5s ease;}
+
+.registerForm > p { color: white; margin-bottom: 1rem;}
+
+.table-section { background-color: white; position: relative; padding: 1rem; left: 50%; transform: translate(-50%); margin-top: 2rem; margin-bottom: 2rem; max-width: 100%; width: max-content; border-radius: .5rem;}
+.table-section h1 { text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: normal; width: 300px; position: relative; left: 50%; transform: translate(-50%);}
+
+.table-section a { color: black;}
+
+.table-section #count,
+.table-section #point { color: rgba(0, 0, 0, 0.5); font-size: .8rem; margin-bottom: .5rem; margin-left: .5rem;}
+
+.table-section .right { position: relative; right: 0px; margin-top: .5rem; width: 100%; text-align: right;}
+.table-section .right a { color: black;}
+
+table { background-color: transparent; border-collapse: collapse; position: relative; left: 50%; transform: translate(-50%);}
+table > thead { font-weight: bold; border-top: 1px solid var(--main-color-dark); border-bottom: 1px solid var(--main-color-dark);}
+table > thead > tr { height: 50px;}
+table > tbody > tr { height: 40px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);}
+table > thead > tr > td:nth-child(1),
+table > tbody > tr > td:nth-child(1) { width: 100px; text-align: center;}
+table > thead > tr > td:nth-child(2) { text-align: center;}
+table > tbody > tr > td:nth-child(2) { width: 750px; max-width: 750px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+table > thead > tr > td:nth-child(3),
+table > tbody > tr > td:nth-child(3) { width: 100px; text-align: center;}
+table > thead > tr > td:nth-child(4),
+table > tbody > tr > td:nth-child(4) { width: 100px; text-align: center;}
+table > thead > tr > td:nth-child(5),
+table > tbody > tr > td:nth-child(5) { width: 50px; text-align: center;}
+table > tbody > tr:nth-child(2n) { background-color: rgba(255, 174, 0, 0.1);}
+
+table.trade > thead > tr > td:nth-child(2),
+table.trade > tbody > tr > td:nth-child(2) { width: 650px;}
+table.trade > thead > tr > td:nth-child(3),
+table.trade > tbody > tr > td:nth-child(3) { width: 100px;}
+table.trade > thead > tr > td:nth-child(4),
+table.trade > tbody > tr > td:nth-child(4) { width: 100px;}
+table.trade > thead > tr > td:nth-child(5),
+table.trade > tbody > tr > td:nth-child(5) { width: 100px;}
+table.trade > thead > tr > td:nth-child(6),
+table.trade > tbody > tr > td:nth-child(6) { width: 50px; text-align: center;}
+
+.board-bottom { position: relative;}
+.board-bottom a { color: black;}
+.board-bottom > .center { display: inline-block; width: fit-content; position: relative; left: 50%; transform: translate(-50%);}
+.board-bottom > .center > a { margin: 0 1rem;}
+
+.fr-file { color: var(--main-color-dark);}
+.fr-file::before { font-family: 'Font Awesome 5 Free'; content: "\f15b  "; color: black;}
+
+.post-section { position: relative; border: 1px solid rgba(0,0,0,0.2); background-color: white; max-width: 1000px; margin-top: 2rem; border-radius: 10px; padding: 2rem; box-sizing: border-box; left: 50%; transform: translate(-50%);}
+.post-section .title { font-size: 2rem; font-weight: normal; border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-bottom: 1rem; padding-left: 1rem;}
+.post-section .date { font-size: .8rem; border-bottom: 1px solid rgba(0, 0, 0, 0.2); padding: .5rem 0; padding-left: 1rem;}
+.post-section .c { background-color: rgba(0, 0, 0, 0.02); padding: 1rem; box-sizing: border-box; margin-top: 1rem; border-radius: 10px;}
+.post-section .c img { border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 10px; transition: all .5s ease; max-width: 100%;}
+.post-section .comment { margin-top: 1rem; }
+.post-section .comment-box { margin-top: 1rem; background-color: rgba(0, 0, 0, 0.02); padding: 1rem; border-radius: 10px; text-align: center; color: rgba(0, 0, 0, 0.5);}
+
+.comment-form { background-color: rgba(0, 0, 0, 0.02); padding: 1rem; display: flex; justify-content: space-between; border-radius: 10px; margin-top: 1rem;}
+.comment-form input[type="text"] { background-color: white; border: 1px solid rgba(0, 0, 0, 0.1); outline: 0; padding: .5rem; width: 90%; box-sizing: border-box; border-radius: 10px;}
+.comment-form input[type="submit"] { background-color: var(--main-color); outline: 0; border: 1px solid rgba(0, 0, 0, 0); padding: .5rem; width: 60px; border-radius: 10px}
+
+.comment-item { background-color: rgba(0, 0, 0, 0.1); width: max-content; padding: 1rem; margin-bottom: 1rem; border-radius: 10px; position: relative; text-align: left;}
+.comment-item.owner { background-color: var(--main-color); position: relative; margin-left: auto; right: 0px; text-align: right;}
+.comment-item .nickname { font-size: 1rem; margin: 0;}
+.comment-item .comment { font-size: 1.2rem; margin: 0;}
+
+.rank-section { position:relative; background-color: white; width: 1000px; max-width: 100%; left:50%; transform: translate(-50%); margin-top: 2rem; padding: 2rem; border-radius: 10px;}
+.rank-section > h1 { font-size: 2rem; font-weight: normal; text-align: center; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.2);}
+
+.rank-item { display: flex; height: 100px; align-items: center; justify-content: space-between; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05); margin-bottom: .5rem; border-radius: 10px;}
+.rank-rank-box { position: relative; text-align: center; height: 50px;}
+.rank-rank-space { width: 200px;}
+.rank-rank { width: 50px; height: 50px; user-select: none; line-height: 50px; text-align: center; position: absolute; left: 50%; transform: translate(-50%); background-color: rgba(0, 0, 0, 0.05); border-radius: 50%;}
+.rank-name { width: 100%; text-align: center;}
+.rank-exp-info { width: 300px;}
+
+.rank-item[rank='1'] .rank-rank { background-color: var(--main-color); width: 75px; height: 75px; line-height: 75px; font-size: 2rem; color: white;}
+.rank-item[rank='1'] .rank-rank-box { height: 75px;}
+
+.rank-item[rank='2'] .rank-rank { background-color: silver; width: 68px; height: 68px; line-height: 68px; font-size: 2rem; color: white;}
+.rank-item[rank='2'] .rank-rank-box { height: 68px;}
+
+.rank-item[rank='3'] .rank-rank { background-color: var(--main-color-more-dark); width: 60px; height: 60px; line-height: 60px; font-size: 2rem; color: white;}
+.rank-item[rank='3'] .rank-rank-box { height: 60px;}
+
+.main-section { width: 1000px; max-width: 100%; position: relative; text-align: center; left:50%; transform: translate(-50%); margin-top: 2rem;}
+.main-section h1 { font-size: 2rem; font-weight: normal;}
+.main-section .main-table { padding: 1rem; width: 500px; background-color: white; border-radius: 10px; max-width: 100%; position: relative; left: 50%; transform: translate(-50%); margin-top: 1rem;}
+.main-section .main-notice-icon { background-color: var(--main-color); width: 50px; height: 50px; line-height: 50px; user-select: none; border-radius: 50%;}
+.main-section .main-notice-text { text-align: left;}
+.main-section .main-notice-title { font-size: 1.5rem;}
+.main-section a { color: black;}
+.main-section .main-table td { padding: .5rem 0;}
+
+.main-section tr:nth-child(3) .main-notice-icon,
+.main-section tr:nth-child(4) .main-notice-icon { height: 25px; line-height: 25px; border-radius: 20px;}
+.main-section tr:nth-child(3) .main-notice-title,
+.main-section tr:nth-child(4) .main-notice-title { font-size: 1rem;}
+
+@media screen and (max-width: 1400px) {
+  .login .right { right: 2%; transition: all 0.5s ease;}
+  .login .right .login-right-item { width: 80px; height: 80px; font-size: 1rem; transition: all 0.5s ease;}
+  .login .center { width: 200px; transform: translate(-50%, -40px); transition: all 0.5s ease;}
+  .login .center a .download { width: 200px; height: 200px; transition: all 0.5s ease;}
+  body, html { width: 100%; min-width: 1000px;}
+  nav { width: 100%;}
+}
+
+@media screen and (max-width: 1000px) {
+  body, html {width: 100%; min-width: 0px;}
+  header h1 { font-size: 3rem; }
+  header h1 .subtitle { font-size: 1rem; margin-top: 2rem;}
+  nav { position: fixed; top: 0px; transition: all .5s ease;}
+  nav h2 { transition: all .5s ease; padding-top: 20px;}
+  nav h2 img { transition: all .5s ease;}
+  nav.down { position: fixed; top: 0px; transition: all .5s ease; background-color: var(--main-color-more-dark); height: 50px; display: flex; align-items: center;}
+  nav.down h2 { width: 100px; transition: all .5s ease; height: 100%; padding: 0; height: max-content;}
+  nav.down h2 img { width: 100px; transition: all .5s ease;}
+  nav > ul { display: none;}
+  .login .right { display: none;}
+  .login .center { display: none;}
+  .login .left { width: 100%; left: 0%;}
+  nav > ul { position: fixed; background-color: white; right: 0px; margin: 0px; padding: 1rem 0; box-sizing: border-box; top: 0px;}
+  nav > ul > li > a,
+  nav > ul > li > span { color: black; font-size: 1.5rem; text-align: left; padding-left: 2rem; font-weight: normal;}
+  nav > ul > li > ul > li > a { color: black; text-align: left; padding-left: 4rem; font-size: 1rem; font-weight: normal;}
+  nav > ul > li > ul { display: block; max-height: 0px; overflow: hidden; transition: all .3s ease;}
+  nav > ul > li:hover > ul { max-height: 300px; transition: all .3s ease;}
+  .fr-box { z-index: 100;}
+  .fr-popup { z-index: 101 !important;}
+  .comment-form { flex-direction: column;}
+  .comment-form input[type="submit"] { width: 100%;}
+  .comment-form input[type="text"] { width: 100%;}
+  .rank-rank-space { width: 100px;}
+}

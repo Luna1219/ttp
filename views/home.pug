@@ -1,0 +1,20 @@
+extend layouts/layout.pug
+
+block title
+  title 엄준식
+
+block content
+  section.main-section
+    h1 공지사항
+    .main-table
+      table.main-notice
+        tbody
+          for notice in notices
+            tr
+              td
+                .main-notice-icon
+                  p 공지
+              td
+                a(href=`/post/${notice.id}`)
+                  .main-notice-text
+                    p.main-notice-title= notice.title

@@ -1,0 +1,33 @@
+{
+  "name": "fm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web": "cross-env NODE_ENV=production nodemon --exec babel-node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node index.js",
+    "devn": "cross-env NODE_ENV=development babel-node index.js",
+    "webn": "cross-env NODE_ENV=production babel-node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "connect-flash": "^0.1.1",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-toastr": "^2.0.2",
+    "froala-editor": "^3.2.0",
+    "moment": "^2.27.0",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "session-file-store": "^1.4.0",
+    "wysiwyg-editor-node-sdk": "^3.1.0"
+  }
+}

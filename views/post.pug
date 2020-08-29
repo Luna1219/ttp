@@ -1,0 +1,39 @@
+extend layouts/layout.pug
+
+block title
+  title 엄준식
+
+block content
+  section
+    .post-section
+      h1.title= postData.title
+      p.date 최종수정일 = #{postData.last_edit}
+      .c(data=`${postData.content}`)
+      .comment
+        p <i class="fa fa-comment"></i> 댓글
+        - if(postData.is_comment)
+          form.comment-form(action=`comment/${postData.id}` method="POST")
+            input#comment(type="text" name="comment")
+            input(type="submit" value="완료")
+          .comment-box
+            - if(comments == null)
+              p 댓글이 없습니다
+            - else
+              for comment in comments
+                if comment.userid == postData.owner_id
+                  .comment-item.owner
+                    p.nickname= comment.nickname
+                    p.comment= comment.comment
+                else
+                  .comment-item
+                    p.nickname= comment.nickname
+                    p.comment= comment.comment
+        - else
+          .comment-box
+            p.not-allow 댓글이 허락되지 않은 게시글 입니다
+
+block js
+  script.
+    const postData = $('.c').attr('data');
+    $('.c').removeAttr('data');
+    $('.c').html(postData);

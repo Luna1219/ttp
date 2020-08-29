@@ -1,0 +1,26 @@
+extend layouts/layout.pug
+
+block title
+  title 엄준식
+
+block content
+  section
+    form(action="/api/register" method="post")
+      .registerForm
+        h1 회원가입
+        .terms
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum veritatis officia harum ratione, suscipit quasi illo vel quae recusandae eveniet ad? Accusantium, esse velit modi ipsam qui tenetur ipsa. Sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nihil recusandae possimus dolorem minus dignissimos temporibus deleniti blanditiis atque earum nemo illo aperiam libero, deserunt quos facere veritatis obcaecati tenetur. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi neque optio quis ipsa itaque voluptates incidunt? Numquam consectetur necessitatibus cum provident, quisquam placeat aspernatur, qui fugit nemo temporibus, sint at? Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt a earum impedit sed quisquam! Optio iste nihil maxime doloremque quisquam nemo dolorem. Cumque libero in, similique maxime possimus odio sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo minima dolorem officia, iure id possimus maxime magni excepturi harum, qui neque sed non labore quod magnam quia assumenda et nihil. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, delectus doloremque corporis, quisquam quos quaerat labore nesciunt repellendus ex praesentium perspiciatis reprehenderit hic repellat temporibus inventore laboriosam rem! Vitae, non.
+        .check
+          p 이용약관에 동의하시겠습니까?
+            input#termsCheck(type="checkbox" name="check" required)
+        p 이용약관을 모두 읽으면 약관 동의가 나옵니다
+        .id-box
+          input.inputjs#id(type="text" name="id" minlength="6" required)
+          span.placeholder ID
+        .pw-box
+          input.inputjs#pw(type="password" name="pw" minlength="6" required)
+          span.placeholder PW
+        .id-box
+          input.inputjs#nickname(type="text" name="nickname" minlength="2" required)
+          span.placeholder NICKNAME
+        input(type="submit" value="회원가입")

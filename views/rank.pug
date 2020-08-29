@@ -1,0 +1,18 @@
+extend layouts/layout.pug
+
+block title
+  title 엄준식
+
+block content
+  section.rank-section
+    h1 엄준식 레벨 랭킹
+    - let idx = 1
+    for ranker in rankers
+      .rank-item(rank=`${idx}`)
+        .rank-rank-box
+          .rank-rank-space
+          .rank-rank #{idx++}
+        p.rank-name #{ranker.name}
+        .rank-exp-info
+          p.rank-level #{ranker.level}
+          p.rank-exp #{(ranker.exp).toLocaleString()}

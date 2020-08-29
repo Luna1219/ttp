@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    block title
+    link(rel="stylesheet", href="/css/default.css")
+    link(rel="stylesheet" href="/css/plugins/toastr.min.css")
+    link(href="/css/plugins/froala/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css")
+    link(href="/css/plugins/froala/froala_style.min.css" rel="stylesheet" type="text/css")
+    block css
+    script(src="https://kit.fontawesome.com/647e2b9997.js")
+    script(src="https://code.jquery.com/jquery-3.5.1.min.js")
+    script(src="/js/plugins/toastr.min.js")
+    script(type="text/javascript" src="/js/plugins/froala/froala_editor.pkgd.min.js")
+    block top-js
+  body
+    .fade.up-window
+      i.fa.fa-angle-double-up
+    include header.pug
+    article
+      block content
+    block js
+    .hide
+      #{req.toastr.render()}
+    include footer.pug
+    script(src="/js/jquery-ready.js")
+    script(src="/js/nav-menu.js")
+    script(src="/js/input-box.js")
+    script(src="/js/terms.js")

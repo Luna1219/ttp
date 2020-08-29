@@ -1,0 +1,9 @@
+.writeBox { position: relative; background-color: white; padding: 2rem; max-width: 1000px; box-sizing: border-box; border-radius: 10px; text-align: center; left: 50%; transform: translate(-50%); margin-top: 2rem;}
+.writeBox h1 { font-size: 2rem; font-weight: normal; margin-bottom: 1rem;}
+.writeBox input[type='text'],
+.writeBox input#price { position:relative; font-size: 1.2rem; background-color: white; border: 1px solid rgba(0,0,0,0.2); outline: 0; box-sizing: border-box; padding: .8rem; width: 100%; margin-bottom: 1rem; border-radius: 10px;}
+.writeBox input[type='submit'] { position: relative; border-radius: 3px; height: 30px; width: 60px; outline: 0; border: 1px solid rgba(0,0,0,0.2); background-color: white; outline: 0; background-color: var(--main-color); color: var(--font-color);}
+.writeBox .right { width: 100%; text-align: right; margin-top: 1rem;}
+.writeBox input#price::-webkit-outer-spin-button,
+.writeBox input#price::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0;}
+.writeBox input#price { -moz-appearance: textfield;}

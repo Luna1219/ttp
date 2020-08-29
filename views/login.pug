@@ -1,0 +1,17 @@
+extend layouts/layout.pug
+
+block title
+  title 엄준식
+
+block content
+  section
+    form(action="/api/login" method="post")
+      .loginForm
+        h1 로그인
+        .id-box
+          input.inputjs#id(type="text" name="id" required)
+          span.placeholder ID
+        .pw-box
+          input.inputjs#pw(type="password" name="pw" required)
+          span.placeholder PW
+        input(type="submit" value="로그인")
